@@ -1,72 +1,55 @@
-Running locally
-===============
+Instructions for setting up the Hippo Angular client project.
+=============================================================
 
-This project uses the Maven Cargo plugin to run the CMS and site locally in Tomcat.
-From the project root folder, execute:
+1) Clone the https://github.com/mgijsberti/gs-rest-service.git into a local project, and start up the greeting service.
 
-  $ mvn clean install
-  $ mvn -P cargo.run
+2) Install Apache Httpd Webserver (https://httpd.apache.org/) on your local desktop, and start it up under localhost.
 
-Access the CMS at http://localhost:8080/cms, and the site at http://localhost:8080/site
-Logs are located in target/tomcat7x/logs
+3) Virtualhost configuration in apache.
 
-Building distribution
-=====================
+<VirtualHost *:80>
+      ServerName cms.example.com
 
-To build a Tomcat distribution tarball containing only deployable artifacts:
+      ProxyPreserveHost Off
 
-  $ mvn clean install
-  $ mvn -P dist
+      ProxyPass          /app                 !
+      ProxyPass /site/ http://127.0.0.1:8080/site/
+      ProxyPass / http://127.0.0.1:8080/cms/
+      ProxyPassReverse / http://127.0.0.1:8080/cms/
+      ProxyPassReverseCookiePath /cms /
+</VirtualHost>
 
-See also src/main/assembly/distribution.xml if you need to customize the distribution.
 
-Using JRebel
-============
+<VirtualHost *:80>
+      ServerName www.example.com
+      ServerAlias *.example.com
 
-Set the environment variable REBEL_HOME to the directory containing jrebel.jar.
+      ProxyPreserveHost  On
 
-Build with:
+      ProxyPass          /app                 !
+      ProxyPass  / http://127.0.0.1:8080/site/
+      ProxyPassReverse  / http://127.0.0.1:8080/site/
+      ProxyPassReverseCookiePath  /site /
 
-  $ mvn clean install -Djrebel
+</VirtualHost>
 
-Start with:
+4) Add to your /etc/hosts to following line
+127.0.0.1	localhost  www.example.com cms.example.com
 
-  $ mvn -P cargo.run -Djrebel
+See http://www.onehippo.org/library/deployment/configuring/configure-apache-httpd-web-server-for-cms-and-sites.html
+for details about this setup.
 
-Best Practice for development
-=============================
 
-Use the option -Drepo.path=/some/path/to/repository during start up. This will avoid
-your repository to be cleared when you do a mvn clean.
+4) In the project
+mvn clean install
+mvn -Pcargo.run -Drepo.path=storage
 
-For example start your project with:
+5) Browse to www.example.com in your browser
 
-$ mvn -P cargo.run -Drepo.path=/home/usr/tmp/repo
+6) Browser to http://www.example.com/greeting and test the greeting application. It should give back the name
+   you enter in the input field.
 
-or with jrebel:
-
-$ mvn -P cargo.run -Drepo.path=/home/usr/tmp/repo -Djrebel
-
-Hot deploy
-==========
-
-To hot deploy, redeploy or undeploy the CMS or site:
-
-  $ cd cms (or site)
-  $ mvn cargo:redeploy (or cargo:undeploy, or cargo:deploy)
-
-Automatic Export
-================
-
-To have your repository changes automatically exported to filesystem during local development, log into
-http://localhost:8080/cms/console and press the "Enable Auto Export" button at the top right. To set this
-as the default for your project edit the file
-./bootstrap/configuration/src/main/resources/configuration/modules/autoexport-module.xml
-
-Monitoring with JMX Console
-===========================
-You may run the following command:
-
-  $ jconsole
-
-Now open the local process org.apache.catalina.startup.Bootstrap start
+7) Login into the cms (http://http://cms.example.com) and go to the channel manager. Check if you can remove and
+   add the greeting component in the channel manager. What happens if you configure the component with the wrong url ?
+   
+   

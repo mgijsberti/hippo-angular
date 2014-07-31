@@ -1,0 +1,39 @@
+Instructions for setting up the hippo angular client project.
+
+Requisites
+
+1) Clone the https://github.com/mgijsberti/gs-rest-service.git into a local project, and start up the greeting service.
+
+2) Install Apache Httpd Webserver (https://httpd.apache.org/) on your local desktop, and start it up under localhost.
+
+3) Virtualhost configuration in apache.
+
+<VirtualHost *:80>
+      ServerName cms.example.com
+
+      ProxyPreserveHost Off
+
+      ProxyPass          /app                 !
+      ProxyPass /site/ http://127.0.0.1:8080/site/
+      ProxyPass / http://127.0.0.1:8080/cms/
+      ProxyPassReverse / http://127.0.0.1:8080/cms/
+      ProxyPassReverseCookiePath /cms /
+</VirtualHost>
+
+
+<VirtualHost *:80>
+      ServerName www.example.com
+      ServerAlias *.example.com
+
+      ProxyPreserveHost  On
+
+      ProxyPass          /app                 !
+      ProxyPass  / http://127.0.0.1:8080/site/
+      ProxyPassReverse  / http://127.0.0.1:8080/site/
+      ProxyPassReverseCookiePath  /site /
+
+</VirtualHost>
+
+
+4) mvn -Pcargo.run -Drepo.path=storage
+

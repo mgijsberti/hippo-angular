@@ -1,0 +1,22 @@
+<div class="well bs-component" ng-controller="GreetingController" >
+
+    <form class="form-horizontal">
+        <fieldset>
+            <legend>Make a greeting !</legend>
+            <div class="form-group">
+                <label for="inputEmail" class="col-lg-2 control-label">Name</label>
+                <div class="col-lg-10">
+                    <input type="text" class="form-control" id="inputEmail"  placeholder="Name" ng-model="myForm.name" ng-minlength="1" ng-maxlength="12"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-lg-10">
+                    <button class="btn btn-primary" ng-click="myForm.submitTheForm()">Do it !</button>
+                </div>
+            </div>
+        </fieldset>
+    </form>
+    <!--div class="alert alert-success" role="alert">
+        Greeting: <strong>{{myForm.greeting}} </strong>
+    </div-->
+</div>

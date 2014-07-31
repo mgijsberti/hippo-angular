@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
+    <modules>
+        <module>frontend</module>
+    </modules>
 
-  <parent>
+    <parent>
     <groupId>org.onehippo.cms7</groupId>
     <artifactId>hippo-cms7-release</artifactId>
     <version>7.9.1</version>
@@ -226,6 +229,9 @@
               <configuration>
                 <properties>
                   <catalina.servlet.uriencoding>UTF-8</catalina.servlet.uriencoding>
+                    <!--cargo.servlet.port>9080</cargo.servlet.port>
+                    <cargo.rmi.port>9205</cargo.rmi.port>
+                    <cargo.tomcat.ajp.port>9009</cargo.tomcat.ajp.port-->
                 </properties>
                 <configfiles>
                   <configfile>

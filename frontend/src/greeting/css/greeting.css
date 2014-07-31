@@ -1,0 +1,39 @@
+body.local-apache {
+    padding: 70px;
+    padding-bottom: 30px;
+
+}
+div.app{
+    margin: 25px;
+    width:50%
+}
+
+.btn-primary,
+.btn-primary:hover {
+    background: #0088cc;
+    border: 2px solid #b9def0;
+    margin-top:10px;
+}
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active,
+.btn-primary.active,
+.open > .dropdown-toggle.btn-primary {
+    color: #0088cc;
+    background-color: #0088cc;
+    border-color: #0088cc;
+}
+.btn-primary:active,
+.btn-primary.active,
+.open > .dropdown-toggle.btn-primary {
+    background-image: none;
+}
+
+.form-horizontal .control-label {
+    float: left;
+    text-align: right;
+}
+
+
+
+

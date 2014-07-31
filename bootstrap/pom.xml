@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0          http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <groupId>org.onehippo.example</groupId>
+    <artifactId>hippo-angular</artifactId>
+    <version>1.01.00-SNAPSHOT</version>
+  </parent>
+
+  <name>My Hippo Angular Project Bootstrap</name>
+  <description>My Hippo Angular Project Bootstrap</description>
+  <artifactId>hippo-angular-bootstrap</artifactId>
+  <packaging>pom</packaging>
+
+  <modules>
+    <module>configuration</module>
+    <module>content</module>
+  </modules>
+
+</project>

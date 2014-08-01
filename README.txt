@@ -1,7 +1,7 @@
 Instructions for setting up the Hippo Angular client project.
 =============================================================
 
-1) Clone the https://github.com/mgijsberti/gs-rest-service.git into a local project, and start up the greeting service.
+1) Clone the https://github.com/mgijsberti/gs-rest-service.git into a local project, and start up the greeting service. Use the start-server.sh script, or use the commands from the script. Check in your local browser the REST service with http://localhost:8086/greeting?name=martijn.
 
 2) Install Apache Httpd Webserver (https://httpd.apache.org/) on your local machine, and start it up under localhost. Make sure that mod_proxy module  (http://httpd.apache.org/docs/2.2/mod/mod_proxy.html) for Forward and Reverse proxies is installed
 
@@ -36,7 +36,7 @@ Instructions for setting up the Hippo Angular client project.
 4) Add to your /etc/hosts to following line
 127.0.0.1	localhost  www.example.com cms.example.com
 
-See http://www.onehippo.org/library/deployment/configuring/configure-apache-httpd-web-server-for-cms-and-sites.html for details about this setup.
+See http://www.onehippo.org/library/deployment/configuring/configure-apache-httpd-web-server-for-cms-and-sites.html for the details.
 
 5) Add in the frontend frontend/src/deploy-apache.sh the document root and the location of the apache log
 DOCUMENT_ROOT='/Library/WebServer/Documents'

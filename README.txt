@@ -38,11 +38,11 @@ Instructions for setting up the Hippo Angular client project.
 
 See http://www.onehippo.org/library/deployment/configuring/configure-apache-httpd-web-server-for-cms-and-sites.html for the details.
 
-5) Add in the frontend frontend/src/deploy-apache.sh the document root and the location of the apache log
+5) In the frontend frontend/src/deploy-apache.sh set the document root and the location of the apache log
 DOCUMENT_ROOT='/Library/WebServer/Documents'
 APACHE_LOG='/private/var/log/apache2'
 
-The scripts copies the Angular application into your Apache webroot folder.
+The script copies the Angular application into your Apache webroot folder.
 
 6) In the project
 mvn clean install

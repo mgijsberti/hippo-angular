@@ -38,15 +38,20 @@ Instructions for setting up the Hippo Angular client project.
 
 See http://www.onehippo.org/library/deployment/configuring/configure-apache-httpd-web-server-for-cms-and-sites.html for details about this setup.
 
+5) Add in the frontend frontend/src/deploy-apache.sh the document root and the location of the apache log
+DOCUMENT_ROOT='/Library/WebServer/Documents'
+APACHE_LOG='/private/var/log/apache2'
 
-4) In the project
+The scripts copies the Angular application into your Apache webroot folder.
+
+6) In the project
 mvn clean install
 mvn -Pcargo.run -Drepo.path=storage
 
-5) Browse to www.example.com in your browser
+7) Browse to www.example.com in your browser
 
-6) Browser to http://www.example.com/greeting and test the greeting application. It should give back the name you enter in the input field.
+8) Browser to http://www.example.com/greeting and test the greeting application. It should give back the name you enter in the input field.
 
-7) Login into the cms (http://http://cms.example.com) and go to the channel manager. Check if you can remove and add the greeting component in the channel manager. What happens if you configure the component with the wrong url ?
+9) Login into the cms (http://http://cms.example.com) and go to the channel manager. Check if you can remove and add the greeting component in the channel manager. What happens if you configure the component with the wrong url ?
    
    

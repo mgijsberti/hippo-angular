@@ -3,7 +3,7 @@ Instructions for setting up the Hippo Angular client project.
 
 1) Clone the https://github.com/mgijsberti/gs-rest-service.git into a local project, and start up the greeting service.
 
-2) Install Apache Httpd Webserver (https://httpd.apache.org/) on your local desktop, and start it up under localhost.
+2) Install Apache Httpd Webserver (https://httpd.apache.org/) on your local machine, and start it up under localhost. Make sure that mod_proxy module  (http://httpd.apache.org/docs/2.2/mod/mod_proxy.html) for Forward and Reverse proxies is installed
 
 3) Virtualhost configuration in apache.
 

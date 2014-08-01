@@ -10,8 +10,6 @@ then
     ROOT='src/'
 fi
 
-echo "version: ${VERSION}"
-
 DOCUMENT_ROOT='/Library/WebServer/Documents'
 APACHE_LOG='/private/var/log/apache2'
 ROOTAPP='app'
@@ -19,6 +17,10 @@ HIPPO='hippo'
 APP='greeting'
 sudo apachectl stop
 sudo mkdir -p ${DOCUMENT_ROOT}/${ROOTAPP}/${HIPPO}
+sudo cp -rf ${HIPPO}/* ${DOCUMENT_ROOT}/${ROOTAPP}/${HIPPO}
+
 sudo mkdir -p ${DOCUMENT_ROOT}/${ROOTAPP}/${APP}
+sudo cp -rf ${APP}/* ${DOCUMENT_ROOT}/${ROOTAPP}/${APP}
+
 sudo apachectl start
 sudo tail -f ${APACHE_LOG}/*
